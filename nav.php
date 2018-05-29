@@ -18,7 +18,7 @@
 
     <ul class="nav navbar-nav">
       <!-- les menu -->
-      <li class="active"><a href="#"> All Catégorie </a></li>
+      <li class="active"><a href="index.php"> All Catégorie </a></li>
 
       <!-- les menu et les sous ménu -->
       <li class="dropdown"> <a class="dropdown-toggle" data-toggle="dropdown" href="#">Japon<span class="caret"></span></a>

@@ -1,5 +1,11 @@
 <?php
 
+/* Cette page permet d'ajouter une voiture et la connection qui
+est la permet de récupérer les informations de la base de données pour les ménu déroulons de formulaire */
+	require('class_db.php');
+
+	$bd_connect = new ClassBD();
+	$bdd = $bd_connect->getBdd();
 ?>
 <!DOCTYPE html>
 <html>
@@ -17,14 +23,13 @@
 
 				<label> Matricule : </label>
 			    <input type="int" class="form-control" name="id"> <br>
-<?php 
-require('config.php');
-$bdd = new ClassBD();
-$pays = $bdd->prepare("SELECT DISTINCT `pays` FROM `vehicule`");
-$pays->execute();
-$markichs = $bdd->prepare("SELECT DISTINCT `marque` FROM `vehicule`");
-$markichs->execute();
-?>		
+	<?php 
+	$pays = $bdd->prepare("SELECT DISTINCT `pays` FROM `vehicule`");
+	$pays->execute();
+
+	$markichs = $bdd->prepare("SELECT DISTINCT `marque` FROM `vehicule`");
+	$markichs->execute();
+	?>		
 			    <label> Pays : </label>
 			    
 				<select type="text" class="form-control form-control-sm" name="pays">
@@ -76,25 +81,4 @@ $markichs->execute();
 
 	</body>
 </html>
-		
-
-
-
-
-<!--
-GROUP BY `pays`
-
-// print_r (permet de visualisé les )
-
-<select type="text" class="form-control form-control-sm" name="pays">
-<option> Englend</option>
-<option> Japon</option>
-<option> France</option>
-<option> Italie</option>
-<option> Allemagne</option>
-</select>
-______________________________________________________
-<input type="text" class="form-control" name="pays"> <br> 
-
-
--->
+	
